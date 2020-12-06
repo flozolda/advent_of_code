@@ -2,6 +2,8 @@
 
 First try to the Advent of Code.
 
-\# Solved puzzles: 4
+Language used: Ruby
+
+\# of solved puzzles: 4
 
 Unsolved puzzles: 

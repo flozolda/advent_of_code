@@ -1,17 +1,17 @@
 require "awesome_print"
 require "csv"
 
-pwTable = CSV.parse(File.read("input.csv"), headers: true)
+pw_table = CSV.parse(File.read("input.csv"), headers: true)
 
 counter = 0
 
 # Part1
-#pwTable.each do |item|
+# pw_table.each do |item|
 #    #ap(item)
 #    rule = item["rule"].split("-")
 #    min = rule[0].to_i
 #    max = rule[1].to_i
-#    
+#
 #    letter = item["letter"][0..-2]
 #    #ap(letter)
 #
@@ -22,30 +22,28 @@ counter = 0
 #    if(countOccurence >= min && countOccurence <= max)
 #            counter += 1
 #    end
-#end
+# end
 
-#ap counter
+# ap counter
 
 # Part 2
 
-pwTable.each do |item|
-    #ap(item)
-    rule = item["rule"].split("-")
-    pos1 = rule[0].to_i - 1
-    pos2 = rule[1].to_i - 1
-    
-    letter = item["letter"][0..-2]
-    #ap(letter)
+pw_table.each do |item|
+  # ap(item)
+  rule = item["rule"].split("-")
+  pos1 = rule[0].to_i - 1
+  pos2 = rule[1].to_i - 1
 
-    pw = item["password"]
+  letter = item["letter"][0..-2]
+  # ap(letter)
 
-    countOccurence = pw.count(letter)
+  pw = item["password"]
 
-    if(pw[pos1] == letter || pw[pos2] == letter)
-        unless(pw[pos1] == letter && pw[pos2] == letter)
-            counter += 1
-        end
-    end
+  # countOccurence = pw.count(letter)
+
+  if pw[pos1] == letter || pw[pos2] == letter
+    counter += 1 unless pw[pos1] == letter && pw[pos2] == letter
+  end
 end
 
 ap counter

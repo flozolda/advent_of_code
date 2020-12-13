@@ -4,6 +4,6 @@ First try to the Advent of Code.
 
 Language used: Ruby
 
-\# of solved puzzles: 6
+\# of solved puzzles: 8 - 1
 
-Unsolved puzzles: 
+Unsolved puzzles: 7,

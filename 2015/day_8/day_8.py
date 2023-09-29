@@ -1,32 +1,42 @@
+#copied solution because I could not get it. 
 
-import re
+def raw_char_count(s):
+    return len(s)
 
-total_code = 0
-total_memory = 0
-
-with open("input.txt") as f:
-    contents = f.readlines()
-    for c in contents:
-        if len(c.strip()) == 2:
-            total_code += len(c.strip())
+def escaped_char_count(s):
+    count = 0
+    i = 1
+    while i < len(s) - 1:
+        if s[i] == "\\":
+            i += 4 if s[i+1] == "x" else 2
         else:
-            total_code += len(c.strip())
-            temp = c[1:-2].strip()
-            print("asd")
-            print(b'{}'.format(temp).decode("ascii"))
-            temp = temp.replace(r"\"",r'"')
-            print(temp)
-            while temp.find(r"\x"):
-                print("found")
-                s = temp.find(r"\x")
-                print("aaaaaa")
-                print(temp)
-                print(temp[:s])
-                print(temp[s+1:])
-                temp = temp[:s] + temp[s+1:]
-                #print(temp)
-                exit()
-            asd = temp.replace(r"\x",r"\"")
-            temp = temp.replace(r"\\",'\\')
-            total_memory += len(c[1:-2].strip())
-        print(total_code)
+            i += 1
+        count += 1
+    return count
+
+def encode(s):
+    result = ''
+    for c in s:
+        if c == '"':
+            result += "\\\""
+        elif c == '\\':
+            result += "\\\\"
+        else:
+            result += c
+    return '"' + result + '"'
+
+def day8_part1():
+    raw, escaped = 0, 0
+    for line in open('input.txt'):
+        raw += raw_char_count(line)
+        escaped += escaped_char_count(line)
+    print(raw - escaped)
+
+def day8_part2():
+    enc, raw = 0, 0
+    for line in open('input.txt'):
+        enc += len(encode(line))
+        raw += raw_char_count(line)
+    print(enc - raw)
+
+day8_part2()

@@ -20,3 +20,13 @@ New Constraint: Only 30 minutes allowed per day (because I have way too much on 
 \# of solved puzzles: 7.5
 
 Unsolved puzzles: 8.2 (Testinput works, ???),9,
+
+## Advent of Code 2021
+
+Language used: Python
+
+New Constraint: No constraints this time
+
+Solved puzzles: 1,2,3.1,4
+
+Unsolved puzzles: 3.2
